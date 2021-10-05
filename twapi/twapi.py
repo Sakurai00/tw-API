@@ -47,19 +47,16 @@ def generate_api_v1(OAuth=1) -> tweepy.API:
     """
 
     load_dotenv()
+    CONSUMER_KEY = os.environ.get("TW_KEY")
+    CONSUMER_SECRET = os.environ.get("TW_KEY_SEC")
 
     if OAuth == 1:
-        CONSUMER_KEY = os.environ.get("TW_KEY")
-        CONSUMER_SECRET = os.environ.get("TW_KEY_SEC")
         ACCESS_TOKEN_KEY = os.environ.get("TW_ACC_TOKEN")
         ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
         auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
         auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
     elif OAuth == 2:
-        CONSUMER_KEY = os.environ.get("TW_KEY")
-        CONSUMER_SECRET = os.environ.get("TW_KEY_SEC")
-
         auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 
     api = tweepy.API(auth, wait_on_rate_limit=True)
