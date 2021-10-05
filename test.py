@@ -14,7 +14,7 @@ def v2_oauth2():
 
 
 def v2_oauth1():
-    client = twapi.twapi.generate_api_v2(1)
+    client = twapi.twapi.generate_api_v2(OAuth=1)
 
     tweets = client.search_recent_tweets(query="python", user_auth=True)
 

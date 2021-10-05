@@ -35,7 +35,7 @@ def create_token():
         f.write("TW_ACC_TOKEN_SEC=" + str(auth.access_token_secret))
 
 
-def generate_api_v1(OAuth: int) -> tweepy.API:
+def generate_api_v1(OAuth=1) -> tweepy.API:
     """Twitter API v1を生成
 
     Args:
@@ -66,7 +66,7 @@ def generate_api_v1(OAuth: int) -> tweepy.API:
     return api
 
 
-def generate_api_v2(OAuth: int) -> tweepy.Client:
+def generate_api_v2(OAuth=1) -> tweepy.Client:
     """Twitter API v2を生成
 
     Args:
