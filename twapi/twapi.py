@@ -98,3 +98,29 @@ def generate_api_v2(OAuth=1) -> tweepy.Client:
         )
 
     return client
+
+
+def enum_token() -> dict:
+    """Twitter APIのアクセストークンを辞書で出力する
+
+    Returns:
+        dict: Twitter APIのアクセストークン
+
+    Examples:
+        tokens = enum_token()
+        stream = Stream(
+            tokens["CONSUMER_KEY"],
+            tokens["CONSUMER_SECRET"],
+            tokens["ACCESS_TOKEN"],
+            tokens["ACCESS_TOKEN_SECRET"],
+        )
+    """
+
+    load_dotenv()
+    tokens = {
+        "CONSUMER_KEY": os.environ.get("TW_KEY"),
+        "CONSUMER_SECRET": os.environ.get("TW_KEY_SEC"),
+        "ACCESS_TOKEN": os.environ.get("TW_ACC_TOKEN"),
+        "ACCESS_TOKEN_SECRET": os.environ.get("TW_ACC_TOKEN_SEC"),
+    }
+    return tokens
